@@ -224,7 +224,6 @@ export class FlightListService {
         ]);
       }
     });
-    console.log(this.flightsMap);
   }
 
   getFlights(from, to, fromDate, toDate, stops) {
