@@ -1,0 +1,99 @@
+.container {
+  background-color: rgb(204, 204, 204);
+}
+
+.row-flight-data {
+  height: 6rem;
+  width: 45%;
+  margin-left: 9%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flights-data {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.cities {
+  font-size: 1.8rem;
+}
+
+.cities span {
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.dates {
+  font-size: 1.4rem;
+}
+
+.mat-button-toggle-group {
+  border: none;
+}
+
+.mat-button-toggle {
+  color: #3c444d;
+  transition: 0.8s;
+}
+
+.mat-button-toggle-checked {
+  color: #fff;
+  background-color: #3c444d;
+  transition: 0.8s;
+}
+
+.row-sort-filter {
+  background-color: rgb(216, 216, 216);
+  height: 5rem;
+}
+
+.sort-filter-bar {
+  width: 50%;
+  margin-left: 10%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sort-flights,
+.filter-flights {
+  width: 24rem;
+  display: flex;
+  align-items: center;
+}
+
+.sort-flights h2,
+.filter-flights h2 {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.price-slider {
+  width: 100%;
+}
+::ng-deep .mat-accent .mat-slider-thumb {
+  background-color: #3c444d;
+}
+::ng-deep .mat-accent .mat-slider-thumb-label {
+  background-color: #3c444d;
+}
+::ng-deep .mat-accent .mat-slider-track-fill {
+  background-color: #3c444d;
+}
+
+.flight-list {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(216, 216, 216);
+}
+
+.animate__animated {
+  --animate-duration: 2s;
+}

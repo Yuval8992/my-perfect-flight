@@ -1,0 +1,60 @@
+<div class="container animate__animated animate__lightSpeedInLeft">
+  <div class="departure">
+    <div class="departure-time">
+      <div class="departure-hour">{{ departureHour }}</div>
+      <div class="departure-date">{{ departureDate }}</div>
+    </div>
+    <div class="from">{{ flightPath[0].from }}</div>
+    <div class="airport-city">
+      {{ findAirportsCities(flightPath[0].from) }}
+    </div>
+    <div class="airplane-id" *ngFor="let flight of flightPath">
+      {{ flightPath.airplaneID }}
+    </div>
+  </div>
+  <div class="flight-simulation">
+    <div class="flight-duration">
+      {{ formatDuration() }}
+    </div>
+    <div class="line">
+      <div *ngFor="let flight of flightPath">
+        <div class="circle"></div>
+        {{ findAirportsCities(flight.from) }}
+      </div>
+      <div class="circle circle-end"></div>
+    </div>
+  </div>
+  <div class="landing">
+    <div class="landing-time">
+      <div class="landing-hour">{{ landingHour }}</div>
+      <div class="landing-date">{{ landingDate }}</div>
+    </div>
+    <div class="from">{{ flightPath[flightPath.length - 1].to }}</div>
+    <div class="airport-city">
+      {{ findAirportsCities(flightPath[flightPath.length - 1].to) }}
+    </div>
+  </div>
+  <div class="vertical-line"></div>
+  <div class="price">
+    <mat-radio-group class="radio-group" [(ngModel)]="selectedPrice">
+      <div *ngFor="let price of prices; let i = index">
+        <div class="ticket-type">{{ ticketTypes[i] }}</div>
+        <mat-radio-button class="radio-button" [value]="price">
+          <span
+            [ngStyle]="{
+              'font-weight': selectedPrice === price ? '500' : null
+            }"
+            >{{ price }}$</span
+          >
+        </mat-radio-button>
+      </div>
+    </mat-radio-group>
+  </div>
+
+  <div class="order">
+    <button class="order-btn">
+      <span class="order-label">FLY</span>
+      <ion-icon size="large" name="airplane-outline"></ion-icon>
+    </button>
+  </div>
+</div>

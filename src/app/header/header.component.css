@@ -1,0 +1,44 @@
+.mat-toolbar.mat-primary {
+  background: #3c444d;
+  color: #fff;
+  height: 8vh;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 1rem;
+}
+
+.nav-flight,
+.nav-user {
+  display: flex;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 1s;
+}
+
+li:hover {
+  transform: scale(1.1);
+}
+
+span {
+  padding: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.active {
+  border-bottom: 1px solid rgb(13, 111, 175);
+}

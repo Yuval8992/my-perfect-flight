@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row-flight-data">
+    <div class="cities animate__animated animate__pulse animate__delay-1s">
+      <img
+        src="./../../assets/img/airplane.png"
+        alt="airplane-img"
+        height="30px"
+      />
+      <span> {{ from }}</span> to <span>{{ to }}</span>
+    </div>
+    <div style="font-size: 1.8rem; padding: 1rem">|</div>
+    <div class="dates">{{ fromDate }} - {{ toDate }}</div>
+  </div>
+
+  <div class="row-sort-filter">
+    <div class="sort-filter-bar">
+      <div class="sort-flights">
+        <h2>Sort By:</h2>
+        <mat-button-toggle-group name="sortBy">
+          <mat-button-toggle
+            value="connections"
+            checked
+            (click)="sortByConnections()"
+            >Connections</mat-button-toggle
+          >
+          <mat-button-toggle value="duration" (click)="sortByDuration()"
+            >Duration</mat-button-toggle
+          >
+        </mat-button-toggle-group>
+      </div>
+      <div class="filter-flights">
+        <h2>Price:</h2>
+        <p>{{ minPrice }}$</p>
+        <mat-slider
+          class="price-slider"
+          [max]="maxPrice"
+          [min]="minPrice"
+          [thumbLabel]="thumbLabel"
+          [(ngModel)]="value"
+        >
+        </mat-slider>
+        <p>{{ maxPrice }}$</p>
+      </div>
+    </div>
+  </div>
+  <div class="flight-list" *ngFor="let flight of flights; let i = index">
+    <app-flight
+      *ngIf="value >= flight['prices'][0]"
+      [flightPath]="flight['flight']"
+      [prices]="flight['prices']"
+    ></app-flight>
+  </div>
+</div>

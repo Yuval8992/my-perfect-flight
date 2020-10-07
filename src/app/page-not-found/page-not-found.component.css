@@ -1,0 +1,56 @@
+.message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  line-height: 1.1;
+  margin-top: 2rem;
+}
+
+.message-container .smiley-img {
+  display: inline-block;
+  width: 6rem;
+  height: 6rem;
+  background-image: url("../../assets/img/emoji.png");
+  background-size: cover;
+}
+
+.message-container h1 {
+  font-size: 6rem;
+  width: 20%;
+  margin-bottom: 1rem;
+  color: rgb(66, 134, 244);
+  display: flex;
+  justify-content: space-between;
+}
+
+.message-container h1 span {
+  font-weight: 700;
+}
+
+.message-container h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: #151723;
+}
+
+.message-container h5 {
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+}
+
+.message-container a {
+  display: inline-block;
+  font-weight: 500;
+  border-radius: 40px;
+  font-size: 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  width: 17rem;
+  background-color: rgb(66, 134, 244);
+  padding: 1rem;
+  color: #fff;
+}

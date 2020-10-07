@@ -1,0 +1,15 @@
+<div class="container">
+  <div [style.display]="display" class="overlay" #overlay>
+    <div class="error-box">
+      <div class="error-message">
+        No flight is available in your selected date combination.
+      </div>
+      <button class="continue-btn" (click)="errorOff(overlay)">Continue</button>
+    </div>
+  </div>
+
+  <app-flight-search
+    [errorOn]="errorOn"
+    [overlay]="overlay"
+  ></app-flight-search>
+</div>

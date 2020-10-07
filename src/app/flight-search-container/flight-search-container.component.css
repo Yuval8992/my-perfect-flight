@@ -1,0 +1,47 @@
+.container {
+  height: 92vh;
+  background-image: url("./../../assets/img/hero.jpg");
+  background-size: cover;
+  background-position: top center;
+  background-attachment: fixed;
+  padding-top: 4%;
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #00000077;
+}
+
+.error-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: White;
+  border: 1px solid black;
+  width: 28%;
+  text-align: center;
+  height: 8rem;
+  z-index: 100;
+  margin: auto;
+  padding: 0.7rem;
+  align-items: center;
+  margin-top: 17%;
+}
+
+.continue-btn {
+  border-radius: 0.2rem;
+  padding: 0.4rem;
+  width: 30%;
+  background-color: #3c444d;
+  color: #fff;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.continue-btn:hover {
+  transform: scale(1.1);
+}
