@@ -8,9 +8,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class FlightSearchContainerComponent implements OnInit {
   @ViewChild('overlay') overlay;
   display = 'none';
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   errorOff(overlay) {
     overlay.style.display = 'none';

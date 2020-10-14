@@ -213,7 +213,7 @@ export class FlightListService {
 
     this.allFlights.forEach((flight) => {
       const allFlightsByCity = this.flightsMap.get(flight.from);
-      const flightDate = this.DateToKey(flight.departureDate).toISOString();
+      const flightDate = this.dateToKey(flight.departureDate).toISOString();
 
       if (!allFlightsByCity.has(flightDate)) {
         allFlightsByCity.set(flightDate, new Array(flight));
@@ -262,6 +262,7 @@ export class FlightListService {
     const flightsByDates = [
       this.flightsMap.get(from).get(fromDate.toISOString()),
     ];
+
     //Not relevant for the first flight
     if (path.length > 0) {
       flightsByDates.push(
@@ -284,7 +285,7 @@ export class FlightListService {
             this.getFlightsRec(
               flight.to,
               to,
-              this.DateToKey(flight.arrivalDate),
+              this.dateToKey(flight.arrivalDate),
               toDate,
               this.setHours(flight.arrivalDate, MIN_HOURS_BETWEEN_FLIGHTS),
               stops - 1,
@@ -298,7 +299,7 @@ export class FlightListService {
   }
 
   //Map key should be like 2020-11-06T00:00:00.000Z
-  DateToKey(fullDate) {
+  dateToKey(fullDate) {
     return new Date(
       fullDate.getFullYear(),
       fullDate.getMonth(),
@@ -320,7 +321,7 @@ export class FlightListService {
       arrivalDate.toISOString() <= departureDate.toISOString() &&
       //Not more than 24 hours of connection
       this.setHours(arrivalDate, MAX_CONNECTION_HOURS).toISOString() >=
-        departureDate.toISOString()
+      departureDate.toISOString()
     );
   }
 

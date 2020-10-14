@@ -11,7 +11,6 @@ import { Flight } from './flight/flight.model';
 })
 export class FlightListComponent implements OnInit {
   flights: Array<{ flight: Flight[]; prices: number[] }> = [];
-  // flightsPrices: Array<number[]> = [];
   from: string;
   to: string;
   fromDate: string;
@@ -26,7 +25,7 @@ export class FlightListComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private flightListService: FlightListService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getFlights();
@@ -63,16 +62,16 @@ export class FlightListComponent implements OnInit {
       return (
         Math.round(
           a['flight'][a['flight'].length - 1].arrivalDate.getTime() -
-            a['flight'][0].departureDate.getTime()
+          a['flight'][0].departureDate.getTime()
         ) /
-          1000 /
-          60 -
+        1000 /
+        60 -
         Math.round(
           b['flight'][b['flight'].length - 1].arrivalDate.getTime() -
-            b['flight'][0].departureDate.getTime()
+          b['flight'][0].departureDate.getTime()
         ) /
-          1000 /
-          60
+        1000 /
+        60
       );
     });
   }
@@ -99,7 +98,7 @@ export class FlightListComponent implements OnInit {
       prices.forEach((price, i) => {
         prices[i] = Math.round(
           (price / flightPath.length) *
-            this.discountForConnection(flightPath.length)
+          this.discountForConnection(flightPath.length)
         );
       });
       this.flights.push({ flight: flightPath, prices: prices });

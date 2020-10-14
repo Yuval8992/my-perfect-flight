@@ -7,8 +7,7 @@ import { FlightListService } from './flight-list/flight-list.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title: string = 'my-perfect-flight';
-  constructor(private flightListService: FlightListService) {}
+  constructor(private flightListService: FlightListService) { }
   ngOnInit(): void {
     this.flightListService.flightsMapInit();
   }

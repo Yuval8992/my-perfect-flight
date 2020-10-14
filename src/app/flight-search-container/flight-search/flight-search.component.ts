@@ -23,7 +23,7 @@ export class FlightSearchComponent implements OnInit {
     private router: Router,
     private flightListService: FlightListService,
     private userDataService: UserDataService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -75,8 +75,8 @@ export class FlightSearchComponent implements OnInit {
     let flights = this.flightListService.getFlights(
       values.from,
       values.to,
-      values.fromDate,
-      values.toDate,
+      this.flightListService.dateToKey(values.fromDate),
+      this.flightListService.dateToKey(values.toDate),
       values.stops
     );
 

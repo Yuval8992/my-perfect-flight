@@ -8,7 +8,7 @@
     <div class="airport-city">
       {{ findAirportsCities(flightPath[0].from) }}
     </div>
-    <div class="airplane-id" *ngFor="let flight of flightPath">
+    <div class="airplane-id" *ngFor="let flight of flightPath; let i = index">
       {{ flightPath.airplaneID }}
     </div>
   </div>

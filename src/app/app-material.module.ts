@@ -41,4 +41,4 @@ import { MatSliderModule } from '@angular/material/slider';
     MatSliderModule,
   ],
 })
-export class AppMaterialModule {}
+export class AppMaterialModule { }

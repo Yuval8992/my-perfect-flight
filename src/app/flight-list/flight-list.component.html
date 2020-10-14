@@ -18,12 +18,13 @@
         <h2>Sort By:</h2>
         <mat-button-toggle-group name="sortBy">
           <mat-button-toggle
+            id="btn-connection"
             value="connections"
             checked
             (click)="sortByConnections()"
             >Connections</mat-button-toggle
           >
-          <mat-button-toggle value="duration" (click)="sortByDuration()"
+          <mat-button-toggle id="btn-duration" value="duration" (click)="sortByDuration()"
             >Duration</mat-button-toggle
           >
         </mat-button-toggle-group>
@@ -32,13 +33,14 @@
         <h2>Price:</h2>
         <p>{{ minPrice }}$</p>
         <mat-slider
-          class="price-slider"
-          [max]="maxPrice"
-          [min]="minPrice"
-          [thumbLabel]="thumbLabel"
-          [(ngModel)]="value"
+        class="price-slider"
+        [max]="maxPrice"
+        [min]="minPrice"
+        [thumbLabel]="thumbLabel"
+        [(ngModel)]="value"
+        [value]="value"
         >
-        </mat-slider>
+      </mat-slider>
         <p>{{ maxPrice }}$</p>
       </div>
     </div>
@@ -48,6 +50,7 @@
       *ngIf="value >= flight['prices'][0]"
       [flightPath]="flight['flight']"
       [prices]="flight['prices']"
+      [id]="i"
     ></app-flight>
   </div>
 </div>

@@ -19,7 +19,7 @@ export class FlightComponent implements OnInit {
   duration: number;
   selectedPrice: number;
   ticketTypes = ['ECONOMY', 'PREMIUM', 'BUSINESS'];
-  constructor(private flightListService: FlightListService) {}
+  constructor(private flightListService: FlightListService) { }
 
   ngOnInit(): void {
     this.formatTime();
@@ -87,8 +87,7 @@ export class FlightComponent implements OnInit {
       stops = `${this.stops} stops`;
     }
 
-    return `${stops} | ${Math.floor(this.duration / 60)}h ${
-      this.duration % 60
-    }m`;
+    return `${stops} | ${Math.floor(this.duration / 60)}h ${this.duration % 60
+      }m`;
   }
 }
