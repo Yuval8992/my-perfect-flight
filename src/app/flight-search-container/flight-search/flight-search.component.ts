@@ -73,11 +73,11 @@ export class FlightSearchComponent implements OnInit {
     }
 
     let flights = this.flightListService.getFlights(
-      values.from,
-      values.to,
-      this.flightListService.dateToKey(values.fromDate),
-      this.flightListService.dateToKey(values.toDate),
-      values.stops
+      this.userDataService.from,
+      this.userDataService.to,
+      this.userDataService.fromDate,
+      this.userDataService.toDate,
+      this.userDataService.stops,
     );
 
     if (flights.length === 0) {
@@ -85,14 +85,6 @@ export class FlightSearchComponent implements OnInit {
       return;
     }
 
-    this.router.navigate(['/flights'], {
-      queryParams: {
-        from: values.from,
-        to: values.to,
-        fromDate: values.fromDate,
-        toDate: values.toDate,
-        stops: values.stops,
-      },
-    });
+    this.router.navigate(['/flights']);
   }
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { FlightListService } from './flight-list.service';
+import { UserDataService } from '../flight-search-container/flight-search/user-data.service'
 import { Flight } from './flight/flight.model';
 
 @Component({
@@ -23,17 +24,16 @@ export class FlightListComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
-    private flightListService: FlightListService
+    private flightListService: FlightListService,
+    private userDataService: UserDataService
   ) { }
 
   ngOnInit(): void {
     this.getFlights();
     if (this.flights) {
+      this.getInputUserData();
       this.sortByConnections();
       this.calcMaxMinPrice();
-      this.fromDate = this.formatDate(new Date(this.fromDate));
-      this.toDate = this.formatDate(new Date(this.toDate));
     }
   }
 
@@ -44,11 +44,14 @@ export class FlightListComponent implements OnInit {
       return;
     }
     this.calcPrice(flights);
+  }
 
-    const queryParams = this.route.snapshot.queryParams;
-    for (const key in queryParams) {
-      this[key] = queryParams[key];
-    }
+  getInputUserData() {
+    this.from = this.userDataService.from;
+    this.to = this.userDataService.to;
+    this.fromDate = this.formatDate(this.userDataService.fromDate);
+    this.toDate = this.formatDate(this.userDataService.toDate);
+    this.stops = this.userDataService.stops;
   }
 
   sortByConnections() {
@@ -88,7 +91,7 @@ export class FlightListComponent implements OnInit {
   }
 
   calcPrice(flights: Array<Flight[]>) {
-    flights.forEach((flightPath, i) => {
+    flights.forEach((flightPath) => {
       let prices = [0, 0, 0];
       flightPath.forEach((flight) => {
         flight.price.forEach((price, i) => {

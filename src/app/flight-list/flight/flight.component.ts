@@ -1,4 +1,3 @@
-import { SelectorMatcher } from '@angular/compiler';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FlightListService } from '../flight-list.service';
 import { Flight } from './flight.model';
