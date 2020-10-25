@@ -9,7 +9,7 @@
       <span> {{ from }}</span> to <span>{{ to }}</span>
     </div>
     <div style="font-size: 1.8rem; padding: 1rem">|</div>
-    <div class="dates">{{ fromDate }} - {{ toDate }}</div>
+    <div class="dates">{{ fromDate | date: "dd/MM/yyyy" }} - {{ toDate | date: "dd/MM/yyyy"}}</div>
   </div>
 
   <div class="row-sort-filter">

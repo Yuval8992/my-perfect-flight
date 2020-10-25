@@ -10,10 +10,8 @@ import { Flight } from './flight.model';
 export class FlightComponent implements OnInit {
   @Input() flightPath: Flight[];
   @Input() prices: number[];
-  departureHour: string;
-  landingHour: string;
-  departureDate: string;
-  landingDate: string;
+  departureDate: Date;
+  landingDate: Date;
   stops: number;
   duration: number;
   selectedPrice: number;
@@ -21,7 +19,7 @@ export class FlightComponent implements OnInit {
   constructor(private flightListService: FlightListService) { }
 
   ngOnInit(): void {
-    this.formatTime();
+    this.getDates();
     this.stops = this.getStops();
     this.duration = this.calcDuration();
     this.selectedPrice = this.prices[0];
@@ -34,32 +32,9 @@ export class FlightComponent implements OnInit {
     return this.flightListService.airportsCities[idx];
   }
 
-  formatTime() {
-    this.departureHour = this.formatHour(this.flightPath[0].departureDate);
-    this.landingHour = this.formatHour(
-      this.flightPath[this.flightPath.length - 1].arrivalDate
-    );
-    this.departureDate = this.formatDate(this.flightPath[0].departureDate);
-    this.landingDate = this.formatDate(
-      this.flightPath[this.flightPath.length - 1].arrivalDate
-    );
-  }
-
-  formatHour(date: Date) {
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-    return `${this.pad(hours)}:${this.pad(minutes)}`;
-  }
-
-  formatDate(date: Date) {
-    return `${this.pad(date.getDate())}/${this.pad(
-      date.getMonth() + 1
-    )}/${date.getFullYear()}`;
-  }
-
-  pad(val) {
-    let valString = val + '';
-    return valString.length < 2 ? '0' + valString : valString;
+  getDates() {
+    this.departureDate = this.flightPath[0].departureDate;
+    this.landingDate = this.flightPath[this.flightPath.length - 1].arrivalDate;
   }
 
   getStops() {
@@ -74,19 +49,5 @@ export class FlightComponent implements OnInit {
       60;
 
     return Math.round(diffInMinutes);
-  }
-
-  formatDuration() {
-    let stops;
-    if (this.stops === 0) {
-      stops = 'Non-stop';
-    } else if (this.stops === 1) {
-      stops = '1 stop';
-    } else {
-      stops = `${this.stops} stops`;
-    }
-
-    return `${stops} | ${Math.floor(this.duration / 60)}h ${this.duration % 60
-      }m`;
   }
 }

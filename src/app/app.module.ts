@@ -12,6 +12,7 @@ import { FlightComponent } from './flight-list/flight/flight.component';
 import { AppMaterialModule } from './app-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FlightDurationPipe } from './flight-list/flight/flight-duration.pipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FlightListComponent,
     FlightComponent,
     PageNotFoundComponent,
+    FlightDurationPipe,
   ],
   imports: [
     BrowserModule,

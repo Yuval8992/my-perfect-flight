@@ -14,8 +14,8 @@ export class FlightListComponent implements OnInit {
   flights: Array<{ flight: Flight[]; prices: number[] }> = [];
   from: string;
   to: string;
-  fromDate: string;
-  toDate: string;
+  fromDate: Date;
+  toDate: Date;
   stops: number;
   maxPrice: number;
   minPrice: number;
@@ -49,8 +49,8 @@ export class FlightListComponent implements OnInit {
   getInputUserData() {
     this.from = this.userDataService.from;
     this.to = this.userDataService.to;
-    this.fromDate = this.formatDate(this.userDataService.fromDate);
-    this.toDate = this.formatDate(this.userDataService.toDate);
+    this.fromDate = this.userDataService.fromDate;
+    this.toDate = this.userDataService.toDate;
     this.stops = this.userDataService.stops;
   }
 
@@ -77,17 +77,6 @@ export class FlightListComponent implements OnInit {
         60
       );
     });
-  }
-
-  formatDate(date: Date) {
-    return `${this.pad(date.getDate())}/${this.pad(
-      date.getMonth() + 1
-    )}/${date.getFullYear()}`;
-  }
-
-  pad(val) {
-    let valString = val + '';
-    return valString.length < 2 ? '0' + valString : valString;
   }
 
   calcPrice(flights: Array<Flight[]>) {

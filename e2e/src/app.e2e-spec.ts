@@ -72,7 +72,7 @@ describe('workspace-project App', () => {
     expect(page.getElByID('button').getAttribute('disabled')).toBeFalsy();
     page.getElByID('button').click();
     browser.getCurrentUrl().then(function (url) {
-      expect(url).toEqual(`${browser.baseUrl}flights?from=tel%20aviv&to=madrid&fromDate=Sun%20Nov%2001%202020%2002:00:00%20GMT%2B0200%20(Israel%20Standard%20Time)&toDate=Wed%20Nov%2011%202020%2002:00:00%20GMT%2B0200%20(Israel%20Standard%20Time)&stops=2`);
+      expect(url).toEqual(`${browser.baseUrl}flights`);
     });
   }
 });

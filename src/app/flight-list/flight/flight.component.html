@@ -1,8 +1,8 @@
 <div class="container animate__animated animate__lightSpeedInLeft">
   <div class="departure">
     <div class="departure-time">
-      <div class="departure-hour">{{ departureHour }}</div>
-      <div class="departure-date">{{ departureDate }}</div>
+      <div class="departure-hour">{{ departureDate | date:"HH:mm" }}</div>
+      <div class="departure-date">{{ departureDate | date:"dd/MM/yyyy" }}</div>
     </div>
     <div class="from">{{ flightPath[0].from }}</div>
     <div class="airport-city">
@@ -14,7 +14,7 @@
   </div>
   <div class="flight-simulation">
     <div class="flight-duration">
-      {{ formatDuration() }}
+      {{duration | flightDuration:stops}}
     </div>
     <div class="line">
       <div *ngFor="let flight of flightPath">
@@ -26,8 +26,8 @@
   </div>
   <div class="landing">
     <div class="landing-time">
-      <div class="landing-hour">{{ landingHour }}</div>
-      <div class="landing-date">{{ landingDate }}</div>
+      <div class="landing-hour">{{ landingDate | date:"HH:mm" }}</div>
+      <div class="landing-date">{{ landingDate | date:"dd/MM/yyyy" }}</div>
     </div>
     <div class="from">{{ flightPath[flightPath.length - 1].to }}</div>
     <div class="airport-city">
